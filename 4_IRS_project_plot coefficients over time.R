@@ -7,7 +7,6 @@ library(knitr)
 library(kableExtra)
 library(readxl)
 rm(list=ls())
-setwd("/Users/adrienne/Box Sync/UCSF Research Projects/UMSP") #set working directory
 
 db_irs_stopped_agg <- read.csv("./IRS project/IRS stopped 3 sites.csv")
 db_irs_stopped_agg$monthyear_date <- ymd(db_irs_stopped_agg$monthyear_date)
@@ -17,7 +16,7 @@ db_irs_start_agg <- read.csv("./IRS project/IRS started 5 sites.csv")
 db_irs_start_agg$monthyear_date <- ymd(db_irs_start_agg$monthyear_date)
 
 ######Q1#######
-coefs <- read_excel("/Users/adrienne/Box Sync/UCSF Research Projects/UMSP/IRS project/stop.xlsx")
+coefs <- read_excel("./IRS project/stop.xlsx")
 coefs$..1 <- NULL
 coefs$..2 <- NULL
 colnames(coefs) <-  c("IRR", "pvalue", "upperbound", "lowerbound")
@@ -47,7 +46,7 @@ ggplot(coefs, aes(factor(months_since_stopping), IRR)) +
   theme_grey(base_size=15) 
 
 ######Q2#######
-coefs <- read_excel("/Users/adrienne/Box Sync/UCSF Research Projects/UMSP/IRS project/restart.xlsx")
+coefs <- read_excel("./restart.xlsx")
 coefs$..1 <- NULL
 coefs$..2 <- NULL
 colnames(coefs) <-  c("IRR", "pvalue", "upperbound", "lowerbound")
@@ -67,7 +66,7 @@ ggplot(coefs, aes(as.factor(months_since_irs), IRR)) +
 ggsave(filename = "IRRs IRS restart.tiff", units="in", width=12, height=8, dpi=300, compression = 'lzw')
 
 ######Q3#######
-coefs <- read_excel("/Users/adrienne/Box Sync/UCSF Research Projects/UMSP/IRS project/start_5_continuous.xlsx")
+coefs <- read_excel("./start_5_continuous.xlsx")
 coefs$..1 <- NULL
 coefs$..2 <- NULL
 colnames(coefs) <-  c("IRR", "pvalue", "upperbound", "lowerbound")

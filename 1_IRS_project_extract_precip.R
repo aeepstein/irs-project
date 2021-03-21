@@ -89,6 +89,3 @@ for(i in 1:length(db)) {
 summary(db$precip)
 hist(db$precip)
 write.csv(db, "./Data/precipitation for irs project.csv")
-
-
-

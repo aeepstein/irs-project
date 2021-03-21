@@ -7,10 +7,9 @@ library(ggplot2)
 library(ggpubr)
 
 rm(list=ls()) 
-setwd("/Users/adrienne/Box Sync/UCSF Research Projects/UMSP") 
 
 #Load in database
-db <- read.dta("./Data/Database/UMSP database updated Jan 17th 2020.dta")
+db <- read.dta("./UMSP database updated Jan 17th 2020.dta")
 colnames(db)
 db$date <- ymd(db$date)
 db$monthyear_date <- (paste(year(db$date), month(db$date), "01", sep = "-"))
@@ -18,7 +17,7 @@ db$monthyear_date <- ymd(db$monthyear_date)
 range(db$monthyear_date)
 
 #Load in rainfall
-precip <- read.csv("./Data/precipitation for irs project.csv")
+precip <- read.csv("./precipitation for irs project.csv")
 db <- merge(db, precip, by = c("site", "monthyear_date"))
 
 #Clean up necessary variables

@@ -4,9 +4,8 @@ library(dplyr)
 library(rgdal)
 
 rm(list=ls()) 
-setwd("/Users/adrienne/Box Sync/UCSF Research Projects/UMSP") 
 
-db <- read.dta("./Data/Database/UMSP database updated Jan 17th 2020.dta")
+db <- read.dta("./UMSP database updated Jan 17th 2020.dta")
 colnames(db)
 db$date <- ymd(db$date)
 db$monthyear_date <- (paste(year(db$date), month(db$date), "01", sep = "-"))
@@ -30,7 +29,7 @@ db <- db %>% filter(site == "Aduku" |
                       site == "Alebtong")
 
 #Load in CHIRPS data (precipitation)
-file_loc <- "/Users/adrienne/Box Sync/UCSF Research Projects/Climate/Data/CHIRPS/Monthly CHIRPS data"
+file_loc <- "./CHIRPS/Monthly CHIRPS data"
 month_year_rasters <- c()
 for(year in 2012:2019) { 
   for(month in 1:12) {

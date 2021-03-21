@@ -1,5 +1,9 @@
 This repository includes code to estimate incidence rate ratios for the impact of starting/stopping IRS in Uganda for the manuscript "The impact of stopping and starting indoor residual spraying on malaria burden in Uganda"
 
+
+[![DOI](https://zenodo.org/badge/322389065.svg)](https://zenodo.org/badge/latestdoi/322389065)
+
+
 The data folder contains 3 datasets, each for estimating one of the 3 study objectives. These datasets are the final "clean" data (aggregated to the monthly level).
 
 The code folder contains the datasets used to generate these aggregated datasets (R scripts 1-2):
